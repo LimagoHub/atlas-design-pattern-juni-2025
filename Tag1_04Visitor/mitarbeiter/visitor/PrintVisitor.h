@@ -4,12 +4,12 @@
 
 #pragma once
 #include <iostream>
-#include "MitarbeiterVisitor.h"
+#include "AbstractMitarbeiterVisitor.h"
 #include "../LohnEmpfaenger.h"
 #include "../GehaltsEmpfaenger.h"
 namespace mitarbeiter::visitor {
 
-    class PrintVisitor: public MitarbeiterVisitor{
+    class PrintVisitor: public AbstractMitarbeiterVisitor{
     public:
         ~PrintVisitor() override = default;
 

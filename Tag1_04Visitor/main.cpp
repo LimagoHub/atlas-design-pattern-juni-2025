@@ -2,6 +2,8 @@
 #include "mitarbeiter/GehaltsEmpfaenger.h"
 #include "mitarbeiter/LohnEmpfaenger.h"
 #include "mitarbeiter/visitor/PrintVisitor.h"
+#include "mitarbeiter/visitor/StatistikVisitor.h"
+
 #include "firma/Firma.h"
 using GEHALTSEMPFAENGER=mitarbeiter::GehaltsEmpfaenger;
 using LOHNEMPFAENGER=mitarbeiter::LohnEmpfaenger;
@@ -23,6 +25,11 @@ int main() {
 
     //firma.print();
     mitarbeiter::visitor::PrintVisitor printVisitor;
+    mitarbeiter::visitor::StatistikVisitor statistikVisitor;
     firma.iterate(printVisitor);
+
+    // ResetArbeitszeitVisitor
+
+    firma.iterate(statistikVisitor);
     return 0;
 }

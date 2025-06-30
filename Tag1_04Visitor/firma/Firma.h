@@ -30,10 +30,12 @@ namespace firma {
         }
 
         void iterate(VISITOR &visitor) {
+            visitor.start();
             for(auto & item: mitarbeiters) {
                 //visitor.visit(item.get());
                 item.get().accept(visitor);
             }
+            visitor.finish();
         }
 
     };
