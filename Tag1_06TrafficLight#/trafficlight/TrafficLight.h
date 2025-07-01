@@ -3,8 +3,28 @@
 //
 
 #pragma once
+#include <memory>
+namespace trafficlight::state {
+    class GreenState;
+    class RedState;
+    class TrafficLightState;
 
+}
+namespace trafficlight {
+    using TRAFFIC_LIGHT_STATE =  std::shared_ptr<trafficlight::state::TrafficLightState>;
+    class TrafficLight {
+    private:
+        const TRAFFIC_LIGHT_STATE red;
+        const TRAFFIC_LIGHT_STATE green;
+        TRAFFIC_LIGHT_STATE current;
+    public:
+        TrafficLight();
 
-class TrafficLight {
+        std::string getColor();
+        void nextColor();
 
-};
+        friend class trafficlight::state::RedState;
+        friend class trafficlight::state::GreenState;
+        friend class trafficlight::state::TrafficLightState;
+    };
+}

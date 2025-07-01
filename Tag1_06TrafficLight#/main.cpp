@@ -1,6 +1,12 @@
 #include <iostream>
+#include "trafficlight/TrafficLight.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    trafficlight::TrafficLight trafficLight;
+    for (int i = 0; i < 5; ++i,trafficLight.nextColor()) {
+        std::cout << trafficLight.getColor() << std::endl;
+    }
+
+
     return 0;
 }

@@ -10,7 +10,7 @@
 class StateB: public AbstractState{
 public:
 
-    explicit StateB(FrontController *frontController) : AbstractState(frontController) {}
+    using AbstractState::AbstractState;
 
     void drucken() override {
         std::cout << "Hier druckt B" << std::endl;

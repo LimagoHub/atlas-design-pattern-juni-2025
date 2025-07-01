@@ -8,5 +8,5 @@ int main() {
     frontController.drucken();
     frontController.changeToB();
     frontController.drucken();
-    frontController.changeToB();
+    //frontController.changeToB();
 }
