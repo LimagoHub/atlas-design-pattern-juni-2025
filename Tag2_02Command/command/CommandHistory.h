@@ -20,13 +20,27 @@ namespace command {
         auto add(const CommandPointer &c )->void {
             if(c->isQuery()) return;
             std::stack<CommandPointer>().swap(redoStack);// Loescht den RedoStack
-            // Insert your code here
+            undoStack.push(c);
         }
         auto undo()->void {
-            std::cout << "Can't undo" << std::endl;
+            if(undoStack.empty()) {
+                std::cout << "Can't undo" << std::endl;
+            } else {
+                auto command = undoStack.top();
+                undoStack.pop();
+                command->undo();
+                redoStack.push(command);
+            }
         }
         auto redo()->void {
-            std::cout << "Can't redo" << std::endl;
+            if(redoStack.empty()) {
+                std::cout << "Can't redo" << std::endl;
+            } else {
+                auto command = redoStack.top();
+                redoStack.pop();
+                command->execute();
+                undoStack.push(command);
+            }
         }
 
 
