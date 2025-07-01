@@ -9,4 +9,5 @@ add_executable(Tag2_02Command main.cpp
         command/AbstractCommand.h
         command/AddCommand.h
         command/PrintCommand.h
-        command/CommandFactory.h)
+        command/CommandFactory.h
+        command/CommandHistory.h)
