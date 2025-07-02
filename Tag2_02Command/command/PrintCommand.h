@@ -3,12 +3,12 @@
 //
 
 #pragma once
-#include "AbstractCommand.h"
+#include "AbstractQuery.h"
 #include "../math/Calculator.h"
 namespace command {
     using Calc=math::Calculator;
 
-    class PrintCommand: public AbstractCommand{
+    class PrintCommand: public AbstractQuery{
     public:
         ~PrintCommand() override = default;
 
